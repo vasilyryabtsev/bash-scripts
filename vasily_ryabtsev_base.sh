@@ -20,7 +20,6 @@ limit=10000000000
 # Текущая дата и время
 date_time=$(date)
 
-
 # Запись логов
 
 note=$(echo "$date_time Available $kb kilobytes")
@@ -35,6 +34,8 @@ fi
 
 # Отправка письма
 
+email="user_email"
+
 if [ "$kb" -lt "$limit" ]; then
-	echo "Memory is almost full!" | mail -s "WARNING@rch" -r vasily@myPc.local vasilyabc@gmail.com
+	echo "Memory is almost full!" | mail -s "WARNING@rch" -r {$USER}@{$HOSTNAME}.local $email
 fi
